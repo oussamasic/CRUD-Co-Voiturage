@@ -70,4 +70,10 @@ public class ImplUserOffreService implements UserOffreService {
 		
 	}
 
+	@Override
+	public void updateoffreuser(Offre_User f) {
+		useroffre.save(f);
+		
+	}
+
 }
