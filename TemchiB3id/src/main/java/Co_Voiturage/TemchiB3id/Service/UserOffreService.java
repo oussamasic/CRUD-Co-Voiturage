@@ -15,6 +15,7 @@ public interface UserOffreService {
 	public void NewUserOffre(Offre_User f);
 	public void deleteUserOffre(Offre_User f);
 	public void deleteAll();
+	public void updateoffreuser(Offre_User f);
 	
 
 }
