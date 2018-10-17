@@ -3,12 +3,14 @@ package Co_Voiturage.TemchiB3id.Service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import Co_Voiturage.TemchiB3id.Model.Offre;
 import Co_Voiturage.TemchiB3id.Model.Offre_User;
 import Co_Voiturage.TemchiB3id.Model.User;
 import Co_Voiturage.TemchiB3id.Repository.UserOffreRepositry;
 
+@Service
 public class ImplUserOffreService implements UserOffreService {
 
 	
@@ -38,14 +40,14 @@ public class ImplUserOffreService implements UserOffreService {
 
 	@Override
 	public List<Offre_User> ListOfOffre(Long id) {
-		List<Offre_User> list = useroffre.findByUser(id);
+		List<Offre_User> list = useroffre.findByIduser(id);
 		return list;
 	}
 
 	@Override
 	public List<Offre_User> Chauffeur(Long id) {
 		// TODO Auto-generated method stub
-		List<Offre_User> list = useroffre.findByOffre(id);
+		List<Offre_User> list = useroffre.findByIdoffre(id);
 		return list;
 	}
 
