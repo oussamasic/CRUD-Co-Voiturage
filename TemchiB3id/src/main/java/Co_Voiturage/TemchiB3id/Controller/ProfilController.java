@@ -35,8 +35,8 @@ public class ProfilController {
 	
 	@Autowired
 	ImplProfilService x;
-	@Autowired
-	ProfilRepository profilrep;
+//	@Autowired
+//	ProfilRepository profilrep;
 	
 	
 	
