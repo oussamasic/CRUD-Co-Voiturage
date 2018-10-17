@@ -16,10 +16,10 @@ public class Offre_User {
 	private Long id;
 	
 	@Column(name = "id_user")
-	private Long id_user;
+	private Long iduser;
 	
 	@Column(name = "id_offre")
-	private Long id_offre;
+	private Long idoffre;
 
 	public Long getId() {
 		return id;
@@ -29,27 +29,42 @@ public class Offre_User {
 		this.id = id;
 	}
 
-	public Long getId_user() {
-		return id_user;
+
+
+	public Long getIduser() {
+		return iduser;
 	}
 
-	public void setId_user(Long id_user) {
-		this.id_user = id_user;
+	public void setIduser(Long iduser) {
+		this.iduser = iduser;
 	}
 
-	public Long getId_offre() {
-		return id_offre;
+	public Long getIdoffre() {
+		return idoffre;
 	}
 
-	public void setId_offre(Long id_offre) {
-		this.id_offre = id_offre;
+	public void setIdoffre(Long idoffre) {
+		this.idoffre = idoffre;
 	}
 
-	public Offre_User(Long id_user, Long id_offre) {
+	public Offre_User(Long id, Long iduser, Long idoffre) {
 		super();
-		this.id_user = id_user;
-		this.id_offre = id_offre;
+		this.id = id;
+		this.iduser = iduser;
+		this.idoffre = idoffre;
 	}
+
+	public Offre_User(Long iduser, Long idoffre) {
+		super();
+		this.iduser = iduser;
+		this.idoffre = idoffre;
+	}
+
+	public Offre_User() {
+		super();
+	}
+
+
 	
 	
 	
