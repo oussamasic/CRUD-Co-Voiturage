@@ -40,7 +40,7 @@ public class User implements Serializable {
 	    @NotEmpty(message = "Email requires non empty value")
 	    @Email(message =    "Email requires valid format")
 	    @Column(name = "email")
-	private String Email;
+	private String email;
 
 	    @Column(name = "adresse")
 	    @Size(min = 2, max =50)    
@@ -69,7 +69,7 @@ public class User implements Serializable {
 		this.id = id;
 		this.username = username;
 		this.Name = name;
-		this.Email = email;
+		this.email = email;
 		this.adresse = adresse;
 		this.naissance = naissance;
 		this.profil = profil;
@@ -78,7 +78,7 @@ public class User implements Serializable {
 	
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", Name=" + Name + ", Email=" + Email + ", adresse="
+		return "User [id=" + id + ", username=" + username + ", Name=" + Name + ", Email=" + email + ", adresse="
 				+ adresse + ", naissance=" + naissance + ", profil=" + profil + "]";
 	}
 	public Long getId() {
@@ -99,12 +99,17 @@ public class User implements Serializable {
 	public void setName(String name) {
 		Name = name;
 	}
+
 	public String getEmail() {
-		return Email;
+		return email;
 	}
+
+
 	public void setEmail(String email) {
-		Email = email;
+		this.email = email;
 	}
+
+
 	public String getAdresse() {
 		return adresse;
 	}
