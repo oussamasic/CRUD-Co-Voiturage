@@ -84,6 +84,72 @@ public class UserOffreController {
 	 }
 	
 }
+ 
+//get all the users in a offer
+@GetMapping("/usersinOffre/{id}")
+public ObjectNode UsersInOffre(@PathVariable(value = "id") Long Id) {
+	 ArrayNode list = JsonNodeFactory.instance.arrayNode();
+	 ObjectNode jsonfinal = JsonNodeFactory.instance.objectNode();
+	 try {
+		 List<Offre_User> object ;
+		 object=xx.Chauffeur(Id);
+		 Iterator<Offre_User> itr = object.iterator();
+		 while(itr.hasNext()) {
+			 Offre_User element = itr.next();
+			 
+			    ObjectNode json = JsonNodeFactory.instance.objectNode();
+			  //  json.put("id", element.getId());
+			   // json.put("offre_id", element.getIdoffre());
+			    json.put("user_id", element.getIduser());
+			       
+			    list.add(json);
+			    }
+		 jsonfinal.put("resultat", list);
+			    return jsonfinal;
+		 
+		 
+	 }
+	 catch(Exception e) {
+		    ObjectNode json = JsonNodeFactory.instance.objectNode();
+           json.put("profils", "no users");
+			//list.add(json);
+			return json;
+	 }
+	// return null;
+}
+ 
+ //get all the offers proposed by a user
+ @GetMapping("/offreofuser/{id}")
+ public ObjectNode OffreOfUser(@PathVariable(value = "id") Long Id) {
+	 ArrayNode list = JsonNodeFactory.instance.arrayNode();
+	 ObjectNode jsonfinal = JsonNodeFactory.instance.objectNode();
+	 try {
+		 List<Offre_User> object ;
+		 object=xx.ListOfOffre(Id);
+		 Iterator<Offre_User> itr = object.iterator();
+		 while(itr.hasNext()) {
+			 Offre_User element = itr.next();
+			 
+			    ObjectNode json = JsonNodeFactory.instance.objectNode();
+			  //  json.put("id", element.getId());
+			    json.put("offre_id", element.getIdoffre());
+			    //json.put("user_id", element.getIduser());
+			       
+			    list.add(json);
+			    }
+		 jsonfinal.put("resultat", list);
+			    return jsonfinal;
+		 
+		 
+	 }
+	 catch(  Exception e) {
+		    ObjectNode json = JsonNodeFactory.instance.objectNode();
+            json.put("profils", "no offres");
+			//list.add(json);
+			return json;
+	 }
+	// return null;
+ }
  // get all OffreUser
  @GetMapping("/offreuser/all")
  public ArrayNode GetAllOffreUser() {

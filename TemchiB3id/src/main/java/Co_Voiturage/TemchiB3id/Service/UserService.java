@@ -11,6 +11,7 @@ public interface UserService {
 	public List<User> AllRequestors();
 	public User GetUser(Long id);
 	public void deleteUser(Long id);
+	public void deleteAllusers();
 	public void UpdateUser(User user);
 	public void AddUser(User user);
 	public User UserConnexion(String x, String y);

@@ -2,6 +2,7 @@ package Co_Voiturage.TemchiB3id.Model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import java.io.Serializable;
@@ -26,28 +27,33 @@ public class User implements Serializable {
     private Long id;
 	
 	    @Column(name = "nom_complet")
-	    @Size(min = 2, max =50)
+	    @Size(min = 2)
 	    @Pattern(regexp = "[A-Za-z. ]*", message = "your complete name requires valid character")
+	    private String Name;
+	    
+	    @Column(name = "password")
+	    //@Size(min = 60)
+	    private String password;
 	  
-	  private String Name;
-	  
-	    @Column(name = "username")
-	    @Size(min = 2, max =50)
+
+		@Column(name = "username")
+	    @Size(min = 2)
 	    @Pattern(regexp = "[A-Za-z. ]*", message = "your  username requires valid character")
-	  private String username;
+	    private String username;
 	
 	    @NotNull(message =  "Email requires valid value")
 	    @NotEmpty(message = "Email requires non empty value")
 	    @Email(message =    "Email requires valid format")
 	    @Column(name = "email")
-	private String email;
+	    private String email;
 
 	    @Column(name = "adresse")
-	    @Size(min = 2, max =50)    
-	private String adresse;
-	@Column( updatable = false, name = "Date_Naissance")
-    @Temporal(TemporalType.TIMESTAMP)
-	private Date naissance;
+	    private String adresse;
+	    
+	    
+	    @Column( updatable = false, name = "Date_Naissance")
+        @Temporal(TemporalType.TIMESTAMP)
+	    private Date naissance;
 
 	
     @JsonIgnore
@@ -63,10 +69,12 @@ public class User implements Serializable {
 		super();
 	}
 	
+  
 	
-	public User(Long id, String username, String name, String email, String adresse, Date naissance, Profil profil) {
+	public User(Long id, String username, String password, String name, String email, String adresse, Date naissance, Profil profil) {
 		super();
 		this.id = id;
+		this.password=password;
 		this.username = username;
 		this.Name = name;
 		this.email = email;
@@ -108,6 +116,15 @@ public class User implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	  public String getPassword() {
+			return password;
+		}
+
+
+		public void setPassword(String password) {
+			this.password = password;
+		}
 
 
 	public String getAdresse() {
